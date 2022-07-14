@@ -1,0 +1,82 @@
+/* Basic Styling */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-family: "McLaren", cursive;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+/* Columns */
+.left-column {
+    width: 70%;
+    position: relative;
+    
+}
+
+.right-column {
+    width: 60%;
+    margin-top: 60px;
+}
+
+/* Left Column */
+.left-column img {
+    height:auto;
+    width: 60%;
+    position: absolute;
+    right: 170px;
+}
+
+.left-column img.active {
+    opacity: 1;
+}
+
+/* Right column */
+
+
+.right-column h3{
+    padding: 5px;
+    padding-bottom: 20px;
+}
+
+.description{
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+
+/* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+}
+
+.product-description span {
+    padding-left: 5px;
+}
+
+.product-description h1 {
+    font-weight: 300;
+    font-size: 52px;
+    color: #43484D;
+    letter-spacing: -2px;
+}
+
+.product-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+}
+
+.product-price{
+    padding-top: 10px;
+}

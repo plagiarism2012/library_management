@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../non-components/Header.jsx";
 
 function Login(props) {
 
@@ -9,7 +10,7 @@ function Login(props) {
         email: "",
         password: ""
     });
- 
+
     function handleChange(event) {
         const { name, value } = event.target;
 
@@ -25,11 +26,11 @@ function Login(props) {
 
         e.preventDefault();
         const response = await fetch("http://localhost:5500/user/login", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: user.email, password: user.password })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: user.email, password: user.password })
         });
         const json = await response.json()
         console.log(json);
@@ -43,35 +44,62 @@ function Login(props) {
         else {
             alert("Invalid Credentials");
             setUser({
-                email:"",
-                password:""
+                email: "",
+                password: ""
             })
         }
     }
 
     return (
-        <div className="container">
-            <form onSubmit={handleSubmit}>
-                <input
-                    onChange={handleChange}
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    required
-                    value={user.email}
-                />
-                <input
-                    onChange={handleChange}
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    required
-                    value={user.password}
-                />
-                <button type="submit"> Submit</button>
-            </form>
+        <div>
+            <Header />
+            <div className="formContainer">
+                <form className="bookForm" onSubmit={handleSubmit}>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >E-mail</span>
+                        <input class="form-control col-sm-5" onChange={handleChange}
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            required
+                            value={user.email} />
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >Password</span>
+                        <input class="form-control col-sm-5" onChange={handleChange}
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            required
+                            value={user.password} />
+                    </div>
+
+
+                    <button class="btn btn-secondary" type="submit"> Log in</button>
+                </form>
+            </div>
         </div>
     );
 }
 
 export default Login;
+
+
+{/* <input
+                        onChange={handleChange}
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        required
+                        value={user.email}
+                    />
+                    <input
+                        onChange={handleChange}
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        required
+                        value={user.password}
+                    /> */}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../non-components/BookForm.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Header from "../non-components/Header";
 
 const details = {
     Name: "",
@@ -14,6 +15,7 @@ const details = {
 
 
 function BookForm() {
+
     let nav = useNavigate();
     const [contact, setContact] = useState({
         name: "",
@@ -26,7 +28,7 @@ function BookForm() {
 
     function update(event) {
         const { name, value } = event.target;
-        
+
         if (name === "tags") {
             const val = value.split(",");
             setContact((prevValue) => {
@@ -70,21 +72,87 @@ function BookForm() {
 
         await axios
             .post("http://localhost:5500/newBook/", details, {
-                headers: {"Authorization": `Bearer ${localStorage.getItem('token')}`}
+                headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
             })
             .then(res => console.log(res.data))
-            .catch(err=>console.log(err))
+            .catch(err => console.log(err))
 
         nav("/");
     }
 
     return (
-        <div className="container">
-            <h1>Add New Book</h1>
-            <p>{contact.email}</p>
-            <form onSubmit={onSubmit}>
-                <input
-                    onChange={update}
+        <div>
+            <Header/>
+            <div className="formContainer">
+                <h1>Add New Book</h1>
+                <form className="bookForm" onSubmit={onSubmit}>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >Book Name</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            type="text"
+                            name="name"
+                            placeholder="Book Name"
+                            value={contact.name} />
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2">Book Author</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            name="author"
+                            type="text"
+                            placeholder="Book Author"
+                            value={contact.author} />
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >Image URL</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            name="image"
+                            placeholder="Book Image URL"
+                            value={contact.image} />
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >Rating</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            type="number"
+                            min="0"
+                            max="5"
+                            pattern="[0-5]*"
+                            name="rating"
+                            placeholder="Book Rating (0-5)"
+                            value={contact.rating} />
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2" >Tags</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            name="tags"
+                            type="text"
+                            placeholder="Tags seperated by ,(comma)"
+                            value={contact.tags} />
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text col-sm-2">Book Count</span>
+                        <input class="form-control col-sm-5" onChange={update}
+                            name="countCopy"
+                            type="number"
+                            min="1"
+                            placeholder="Number of Copies"
+                            value={contact.countCopy} />
+                    </div>
+                    <button type="submit" class="btn btn-secondary"> Submit</button>
+                </form>
+            </div>
+        </div>
+    );
+}
+
+export default BookForm;
+
+export { details };
+
+
+
+{/* <input
+                    onChange={update} z
                     type="text"
                     name="name"
                     placeholder="Book Name"
@@ -127,13 +195,4 @@ function BookForm() {
                     min="1"
                     placeholder="Number of Copies"
                     value={contact.countCopy}
-                />
-                <button type="submit"> Submit</button>
-            </form>
-        </div>
-    );
-}
-
-export default BookForm;
-
-export { details };
+                /> */}

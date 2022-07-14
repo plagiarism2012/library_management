@@ -7,7 +7,10 @@
 body {
     background: #eee;
     padding: 0 16px;
+    font-family: "McLaren", cursive;
 }
+
+/* Header */
 
 header {
     background-color: #f5ba13;
@@ -18,9 +21,24 @@ header {
 
 header h1 {
     color: #fff;
-    font-family: "McLaren", cursive;
     font-weight: 200;
+    display: inline-block;
 }
+
+.homeButtons {
+    display: block;
+    position: relative;
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+.homeButton {
+    margin: 5px;
+}
+
+/* Footer */
 
 footer {
     position: absolute;
@@ -29,6 +47,8 @@ footer {
     width: 100%;
     height: 2.5rem;
 }
+
+/* Book */
 
 .book {
     background: #fff;
@@ -40,8 +60,26 @@ footer {
     float: left;
 }
 
-.book img{
+.book img {
     border-radius: 5px;
     height: 50%;
-    width : 220px;
+    width: 220px;
+}
+
+/* Book Form */
+
+.formContainer {
+    padding: 100px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.input-group{
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+.input-group span,input{
+    border: 1px black solid;
 }

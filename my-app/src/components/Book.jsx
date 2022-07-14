@@ -9,7 +9,7 @@ function Book(props) {
                 <div className="book">
                     {console.log(props.image)}
                     <img src={props.image} alt="NA" />
-                    <h1>{props.name}</h1>
+                    <h4 class="bookName">{props.name}</h4>
                     <p>{props.author}</p>
                 </div>
             </Link>          

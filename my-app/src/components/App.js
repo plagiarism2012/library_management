@@ -17,7 +17,6 @@ function App() {
     return (
         <div>
             <BookAPI>
-                <Header />
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<BookListRender />} />
