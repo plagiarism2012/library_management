@@ -30,49 +30,66 @@ function IndividualBook(props) {
     console.log(book);
 
     var stars = [];
-    for(var i=0;i<book.Rating;i++){
+    for (var i = 0; i < book.Rating; i++) {
         stars.push(<i class="fa-solid fa-star fa-2xl"></i>);
     }
 
     return (
         <div>
-        <Header/>
-        <main class="container">
+            <Header />
+            <main class="container">
 
-            {/* Image */}
-            <div class="left-column">
-                <img src={book.Image} alt="NA" />
-            </div>
-
-            <div class="right-column">
-
-                <div class="product-description">
-                    <h1>{book.Name}</h1>
-                    <h3>{book.Author}</h3>
-                    <span>{stars}</span>
-                    <p className="description">Description</p>
+                {/* Image */}
+                <div class="left-column">
+                    <img src={book.Image} alt="NA" />
                 </div>
 
+                <div class="right-column">
 
-                <div class="product-configuration">
-                    <div class="cable-config">
-                        <span>Tags : </span>
-                        {book.tags?.map(item => {return(<button type="button" class="btn btn-outline-secondary">{item}</button>)})}
+                    <div class="product-description">
+                        <h1>{book.Name}</h1>
+                        <h3>{book.Author}</h3>
+                        <span>{stars}</span>
+                        <p className="description">Description</p>
                     </div>
-                </div>
 
 
-                <div class="product-price">
-                    
-                    <br/>
-                    <span className="numbers">Current Availibility : {book.countBook} books</span>
+                    <div class="product-configuration">
+                        <div class="cable-config">
+                            <span>Tags : </span>
+                            {book.tags?.map(item => { return (<button type="button" class="btn btn-outline-secondary">{item}</button>) })}
+                        </div>
+                    </div>
+
+
+                    <div class="product-price">
+                        <br />
+                        <span className="numbers">Current Availibility : {book.countBook} books</span>
+                    </div>
+
                 </div>
+
+            </main>
+
+            <div className="editData">
+                {localStorage.getItem("token") &&
+                    <div className="editBookData">
+                        <div>
+                            <span className="content">Update Count : </span>
+                            <button><i class="fa-solid fa-circle-plus fa-2xl"></i></button>
+                            <button><i class="fa-solid fa-circle-minus fa-2xl"></i></button>
+                        </div>
+                        <br />
+                        <div>
+                            <span className="content">Delete Book : </span>
+                            <button onClick={Delete}><i class="fa-solid fa-trash-can fa-2xl"></i></button>
+                        </div>
+                    </div>
+                }
             </div>
-        </main>
         </div>
     );
 }
 
 export default IndividualBook;
 
-// {localStorage.getItem("token") && <button onClick={Delete}>Delete Book</button>}

@@ -80,3 +80,26 @@ body {
 .product-price{
     padding-top: 10px;
 }
+
+/* Edit Data */
+
+.editData{
+    padding: 70px;
+    text-align: center;
+}
+
+.editBookData{
+    display: inline-block;
+    border: 3px red solid;
+    border-radius: 10px;
+    padding: 50px;
+    font-size: 18px;
+}
+
+.editBookData button{
+    border: 0;
+}
+
+.content{
+    padding: 20px;
+}
