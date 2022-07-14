@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../non-components/BookForm.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { token } from "./Login";
+// import { token } from "./Login";
 
 const details = {
     Name: "",
@@ -12,6 +12,7 @@ const details = {
     tags: [],
     countBook: 0
 };
+
 
 function BookForm() {
     let nav = useNavigate();
@@ -23,6 +24,10 @@ function BookForm() {
         tags: [],
         countBook: ""
     });
+
+    console.log(localStorage.getItem('token'));
+
+
 
     function update(event) {
         const { name, value } = event.target;
@@ -70,7 +75,7 @@ function BookForm() {
 
         await axios
             .post("http://localhost:5500/newBook/", details, {
-                headers: {"Authorization": `Bearer ${token}`}
+                headers: {"Authorization": `Bearer ${localStorage.getItem('token')}`}
             })
             .then(res => console.log(res.data))
 

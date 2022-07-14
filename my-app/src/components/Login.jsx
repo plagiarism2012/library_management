@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-var token = "tatz";
-
 function Login(props) {
 
     const nav = useNavigate();
@@ -35,12 +33,10 @@ function Login(props) {
         });
         const json = await response.json()
         console.log(json);
-        nav("/");
         if (json.success) {
-            token = json.authToken;
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            props.showAlert("Logged in Successfully", "success");
+            alert("Logged in Successfully", "success");
             nav("/");
             // window. location. reload(false);
         }
@@ -75,5 +71,3 @@ function Login(props) {
 }
 
 export default Login;
-
-export {token};
