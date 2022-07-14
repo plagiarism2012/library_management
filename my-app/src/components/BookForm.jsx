@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../non-components/BookForm.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { token } from "./Login";
 
 const details = {
     Name: "",
@@ -24,10 +23,6 @@ function BookForm() {
         tags: [],
         countBook: ""
     });
-
-    console.log(localStorage.getItem('token'));
-
-
 
     function update(event) {
         const { name, value } = event.target;
@@ -78,9 +73,9 @@ function BookForm() {
                 headers: {"Authorization": `Bearer ${localStorage.getItem('token')}`}
             })
             .then(res => console.log(res.data))
+            .catch(err=>console.log(err))
 
         nav("/");
-
     }
 
     return (
@@ -90,6 +85,7 @@ function BookForm() {
             <form onSubmit={onSubmit}>
                 <input
                     onChange={update}
+                    type="text"
                     name="name"
                     placeholder="Book Name"
                     value={contact.name}
@@ -97,6 +93,7 @@ function BookForm() {
                 <input
                     onChange={update}
                     name="author"
+                    type="text"
                     placeholder="Book Author"
                     value={contact.author}
                 />
@@ -108,7 +105,9 @@ function BookForm() {
                 />
                 <input
                     onChange={update}
-                    type="text"
+                    type="number"
+                    min="0"
+                    max="5"
                     pattern="[0-5]*"
                     name="rating"
                     placeholder="Book Rating (0-5)"
@@ -117,12 +116,15 @@ function BookForm() {
                 <input
                     onChange={update}
                     name="tags"
+                    type="text"
                     placeholder="Tags seperated by ,(comma)"
                     value={contact.tags}
                 />
                 <input
                     onChange={update}
                     name="countCopy"
+                    type="number"
+                    min="1"
                     placeholder="Number of Copies"
                     value={contact.countCopy}
                 />

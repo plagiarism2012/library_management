@@ -41,7 +41,11 @@ function Login(props) {
             // window. location. reload(false);
         }
         else {
-            props.showAlert("Invalid Credentials", "danger");
+            alert("Invalid Credentials");
+            setUser({
+                email:"",
+                password:""
+            })
         }
     }
 

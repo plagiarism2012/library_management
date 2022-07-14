@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Bookcontext from "../BookContext/context";
-import Book from "./Book"
+import Book from "./Book";
+
 
 function BookListRender() {
-
     const nav = useNavigate();
 
     const context = useContext(Bookcontext);
@@ -13,42 +13,43 @@ function BookListRender() {
         allBooks();
     }, []);
 
-    const Logout = () =>{
-        if(localStorage.getItem('token')){
+    const Logout = () => {
+        if (localStorage.getItem('token')) {
             localStorage.setItem('token', "");
             alert("Logged out sucessfully!");
+            window.location.reload();
         }
-        else{
+        else {
             alert("Need to Login first!");
         }
     }
 
-    const Check = ()=>{
-        if(localStorage.getItem('token')){
+    const Check = () => {
+        if (localStorage.getItem('token')) {
             nav("/newBook")
         }
-        else{
+        else {
             alert("Need to Login first!");
             nav("/");
         }
     }
 
+    
+
 
     return (
         <div>
-            <button onClick={Logout}>
-                logout
-            </button>
-            <button onClick={Check}>
-                Book Form
-            </button>
-            <button>
+            {localStorage.getItem("token") && <button onClick={Logout}>logout</button>}
+            {localStorage.getItem("token") && <button onClick={Check}>Book Form</button>}
+            {!localStorage.getItem("token") && <button>
                 <Link to="/login">
                     User Login
                 </Link>
-            </button>
+            </button>}
+            {localStorage.getItem("token") && <button>Logged In</button>}
+            
             {book.map(item => (
-                <Book name={item.Name} author={item.Author} id={item._id} />
+                <Book name={item.Name} author={item.Author} id={item._id} image={item.Image} />
             ))}
         </div>
     );

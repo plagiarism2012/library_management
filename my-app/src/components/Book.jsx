@@ -1,17 +1,14 @@
-import {
-    useNavigate, Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 
 function Book(props) {
-
-    const navigate = useNavigate(); 
 
     return (
         <div>
             <Link to="/IndividualBook" state={{ID:props.id}}>
                 <div className="book">
-                    <img alt="NA" />
+                    {console.log(props.image)}
+                    <img src={props.image} alt="NA" />
                     <h1>{props.name}</h1>
                     <p>{props.author}</p>
                 </div>
