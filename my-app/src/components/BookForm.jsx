@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../non-components/BookForm.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../non-components/Header";
+import Footer from "../non-components/Footer";
 
 const details = {
     Name: "",

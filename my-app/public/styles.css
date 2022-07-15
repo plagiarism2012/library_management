@@ -8,6 +8,7 @@ body {
     background: #eee;
     padding: 0 16px;
     font-family: "McLaren", cursive;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -37,15 +38,14 @@ header h1 {
 .homeButton {
     margin: 5px;
 }
-
 /* Footer */
 
-footer {
-    position: absolute;
+.sticky-footer {
+    background-color: red;
+    position: sticky;
     text-align: center;
-    bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    top: 100%;
 }
 
 /* Book */
@@ -62,8 +62,21 @@ footer {
 
 .book img {
     border-radius: 5px;
-    height: 50%;
+    height: 70%;
     width: 220px;
+}
+
+.bookName{
+    font-size: 25px;
+}
+
+.card{
+    height: 500px;
+}
+
+.card-text{
+    position: absolute;
+    bottom: 20px;
 }
 
 /* Book Form */
@@ -80,6 +93,18 @@ footer {
     justify-content: center;
     margin: 25px 0;
 }
+
 .input-group span,input{
     border: 1px black solid;
+}
+
+#Alert1,#Alert2{
+    visibility: hidden;
+}
+
+#Alert3{
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }

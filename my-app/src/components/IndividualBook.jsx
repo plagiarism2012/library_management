@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Bookcontext from '../BookContext/context';
 import axios from "axios";
 import "../non-components/IndividualBook.css"
 import Header from "../non-components/Header";
+import Footer from "../non-components/Footer.jsx";
+import { Alert } from "reactstrap";
 
 function IndividualBook(props) {
     const nav = useNavigate();
@@ -17,14 +19,19 @@ function IndividualBook(props) {
     }, []);
 
     async function Delete() {
+
         await axios
             .delete("http://localhost:5500/deleteBook/" + ID, {
                 headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
             })
             .then(res => console.log(res.data))
 
-        alert("Deleted Successfully");
-        nav("/");
+        const message = document.getElementById("Alert");
+        message.style.visibility = "visible";
+
+        setTimeout(function () {
+            nav("/");
+        }, 1000);
     }
 
     console.log(book);
@@ -39,9 +46,8 @@ function IndividualBook(props) {
             <Header />
             <main class="container">
 
-                {/* Image */}
                 <div class="left-column">
-                    <img src={book.Image} alt="NA" />
+                    <img className="bookImg" src={book.Image} alt="NA" />
                 </div>
 
                 <div class="right-column">
@@ -74,18 +80,28 @@ function IndividualBook(props) {
             <div className="editData">
                 {localStorage.getItem("token") &&
                     <div className="editBookData">
-                        <div>
-                            <span className="content">Update Count : </span>
-                            <button><i class="fa-solid fa-circle-plus fa-2xl"></i></button>
-                            <button><i class="fa-solid fa-circle-minus fa-2xl"></i></button>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-3"> Count</span>
+                            <input class="form-control col-sm-4"
+                                name="countCopy"
+                                type="number"
+                                min="1"
+                                placeholder="Number of Copies"
+                                value={book.countBook} />
+                            <button className="btn btn-secondary btn-sm ml-2">Confirm</button>
                         </div>
+
                         <br />
                         <div>
                             <span className="content">Delete Book : </span>
-                            <button onClick={Delete}><i class="fa-solid fa-trash-can fa-2xl"></i></button>
+                            <button className="delete" onClick={Delete}><i class="fa-solid fa-trash-can fa-xl delete"></i></button>
                         </div>
                     </div>
                 }
+            
+                <div id="Alert" class="alert alert-danger" role="alert">
+                    Book Deleted Successfully.
+                </div>
             </div>
         </div>
     );

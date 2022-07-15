@@ -19,7 +19,7 @@ body {
 .left-column {
     width: 70%;
     position: relative;
-    
+
 }
 
 .right-column {
@@ -29,10 +29,11 @@ body {
 
 /* Left Column */
 .left-column img {
-    height:auto;
+    height: 100%;
     width: 60%;
     position: absolute;
     right: 170px;
+    border-radius: 10px;
 }
 
 .left-column img.active {
@@ -42,12 +43,12 @@ body {
 /* Right column */
 
 
-.right-column h3{
+.right-column h3 {
     padding: 5px;
     padding-bottom: 20px;
 }
 
-.description{
+.description {
     padding-top: 100px;
     padding-bottom: 70px;
 }
@@ -77,18 +78,18 @@ body {
     line-height: 24px;
 }
 
-.product-price{
+.product-price {
     padding-top: 10px;
 }
 
 /* Edit Data */
 
-.editData{
+.editData {
     padding: 70px;
     text-align: center;
 }
 
-.editBookData{
+.editBookData {
     display: inline-block;
     border: 3px red solid;
     border-radius: 10px;
@@ -96,10 +97,20 @@ body {
     font-size: 18px;
 }
 
-.editBookData button{
+.content {
+    padding: 20px;
+}
+
+.delete {
+    outline: 0;
     border: 0;
 }
 
-.content{
-    padding: 20px;
+.delete:hover,
+.delete:focus {
+    outline: none;
+}
+
+#Alert{
+    visibility: hidden;
 }

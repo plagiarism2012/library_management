@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../non-components/Header.jsx";
+import Footer from "../non-components/Footer.jsx";
 
 function Login(props) {
 
@@ -37,16 +38,27 @@ function Login(props) {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            alert("Logged in Successfully", "success");
-            nav("/");
+            const message = document.getElementById("Alert1");
+            message.style.visibility = "visible";
+
+            setTimeout(function () {
+                nav("/");
+            }, 1000);
+
             // window. location. reload(false);
         }
         else {
-            alert("Invalid Credentials");
+            const message = document.getElementById("Alert2");
+            message.style.visibility = "visible";
+
             setUser({
                 email: "",
                 password: ""
             })
+
+            setTimeout(function () {
+                message.style.visibility = "hidden";
+            }, 1000);
         }
     }
 
@@ -79,27 +91,16 @@ function Login(props) {
 
                     <button class="btn btn-secondary" type="submit"> Log in</button>
                 </form>
+
+                <div id="Alert1" class="alert alert-success" role="alert">
+                    Logged In Successfully.
+                </div>
+                <div id="Alert2" class="alert alert-danger" role="alert">
+                    Unsuccessful Log In.
+                </div>
             </div>
         </div>
     );
 }
 
 export default Login;
-
-
-{/* <input
-                        onChange={handleChange}
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        required
-                        value={user.email}
-                    />
-                    <input
-                        onChange={handleChange}
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        required
-                        value={user.password}
-                    /> */}

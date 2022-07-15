@@ -3,8 +3,6 @@ import {
     Route,
     Routes,
 } from "react-router-dom";
-import Header from "../non-components/Header";
-import Footer from "../non-components/Footer";
 import BookForm from "./BookForm";
 import BookListRender from "./BookListRender";
 import IndividualBook from "./IndividualBook";
@@ -26,9 +24,8 @@ function App() {
                     </Routes>
                 </BrowserRouter>
             </BookAPI>
+            {/* <Footer/> */}
         </div>
-        //<UserLogin/>
-
     );
 }
 
