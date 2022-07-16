@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Bookcontext from "../BookContext/context";
 
 
 function Header() {
+
     const nav = useNavigate();
     const Check = () => {
         if (localStorage.getItem('token')) {
@@ -32,6 +34,8 @@ function Header() {
         // window.location.reload();
     }
 
+
+
     return (
         <header>
 
@@ -39,10 +43,10 @@ function Header() {
             <nav class="navbar navbar-light">
                 <Link to="/"><h1 id="Library">Library </h1></Link>
 
-                <form class="form-inline mx-auto">
-                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" />
+                {/* <form class="form-inline mx-auto">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search" value={user.search} />
                     <button class="btn btn-secondary btn-md my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> */}
 
                 <div className="homeButtons">
                     {localStorage.getItem("token") && <button onClick={Logout} type="button" class="btn btn-secondary btn-lg homeButton">logout</button>}

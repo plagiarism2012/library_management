@@ -4,13 +4,12 @@ import React from "react";
 function Book(props) {
 
     function truncate(str) {
-        return str.length > 26 ? str.substring(0, 23) + "..." : str;
+        return str.length > 26 ? str.substring(0, 21) + "..." : str;
     }
 
     return (
             <Link to="/IndividualBook" state={{ ID: props.id }}>
-                <div className="card book">
-                    {console.log(props.image)}
+                <div className="card book" id="card">
                     <img className="card-img-top" src={props.image} alt="NA" />
                     <div className="card-body">
                         <p className="card-title bookName">{truncate(props.name)}</p>

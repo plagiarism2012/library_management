@@ -38,6 +38,10 @@ header h1 {
 .homeButton {
     margin: 5px;
 }
+
+.hide {
+    display: none;
+}
 /* Footer */
 
 .sticky-footer {
