@@ -8,6 +8,7 @@ import BookListRender from "./BookListRender";
 import IndividualBook from "./IndividualBook";
 import BookAPI from "../BookContext/BookAPI";
 import Login from "./Login";
+import About from "../non-components/About"
 
 
 function App() {
@@ -21,10 +22,10 @@ function App() {
                         <Route path="/IndividualBook" name="IndividualBook" element={<IndividualBook />} />
                         <Route path="/newBook" name="newBook" element={<BookForm />} />
                         <Route path="/login" name="login" element={<Login />} />
+                        <Route path="/about" name="about" element={<About/>} />
                     </Routes>
                 </BrowserRouter>
             </BookAPI>
-            {/* <Footer/> */}
         </div>
     );
 }

@@ -59,16 +59,7 @@ function BookForm() {
         details.tags = contact.tags;
         details.countBook = contact.countCopy;
 
-        setContact(() => {
-            return {
-                name: "",
-                author: "",
-                image: "",
-                rating: "",
-                tags: [],
-                countCopy: ""
-            };
-        });
+
 
         await axios
             .post("http://localhost:5500/newBook/", details, {
@@ -77,16 +68,32 @@ function BookForm() {
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
 
-        nav("/");
+
+        const message = document.getElementById("bookAddAlert");
+        message.style.visibility = "visible";
+
+        setTimeout(function () {
+            setContact(() => {
+                return {
+                    name: "",
+                    author: "",
+                    image: "",
+                    rating: "",
+                    tags: [],
+                    countCopy: ""
+                };
+            });
+            nav("/");
+        }, 1000);
+
     }
 
     return (
         <div>
-            <Header/>
+            <Header />
             <div className="formContainer">
                 <h1>Add New Book</h1>
                 <form className="bookForm" onSubmit={onSubmit}>
-
                     <div class="input-group mb-3">
                         <span class="input-group-text col-sm-2" >Book Name</span>
                         <input class="form-control col-sm-5" onChange={update}
@@ -140,6 +147,10 @@ function BookForm() {
                     </div>
                     <button type="submit" class="btn btn-secondary"> Submit</button>
                 </form>
+
+                <div id="bookAddAlert" class="alert alert-success" role="alert">
+                    Book Added Successfully.
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,41 @@
+.About{
+    text-align: center;
+}
+
+.content h1{
+    padding: 70px;
+    padding-bottom: 30px;
+    
+}
+.card{
+    display: inline-block;
+    margin: 10px;
+}
+
+.content h3{
+    font-family: 'Righteous', cursive;
+}
+
+hr{
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray;
+    margin: 50px 0;
+    padding: 1px;
+    border-radius: 2px;
+    background-color:  #410374;
+}
+
+.content span{
+    margin:15px;
+}
+
+.content a{
+    color: black;
+}
+
+.logos{
+    position: relative;
+    top: 50px;
+}

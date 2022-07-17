@@ -13,7 +13,7 @@ function Book(props) {
                     <img className="card-img-top" src={props.image} alt="NA" />
                     <div className="card-body">
                         <p className="card-title bookName">{truncate(props.name)}</p>
-                        <p className="card-text">{props.author}</p>
+                        <p className="card-text authorName">{props.author}</p>
                     </div>
                 </div>
             </Link>

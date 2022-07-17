@@ -67,27 +67,27 @@ function Login(props) {
             <Header />
             <div className="formContainer">
                 <form className="bookForm" onSubmit={handleSubmit}>
+                    <div className="LoginInput">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-2" >E-mail</span>
+                            <input class="form-control col-sm-5" onChange={handleChange}
+                                name="email"
+                                type="email"
+                                placeholder="Email"
+                                required
+                                value={user.email} />
+                        </div>
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-sm-2" >E-mail</span>
-                        <input class="form-control col-sm-5" onChange={handleChange}
-                            name="email"
-                            type="email"
-                            placeholder="Email"
-                            required
-                            value={user.email} />
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-2" >Password</span>
+                            <input class="form-control col-sm-5" onChange={handleChange}
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                                required
+                                value={user.password} />
+                        </div>
                     </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-sm-2" >Password</span>
-                        <input class="form-control col-sm-5" onChange={handleChange}
-                            name="password"
-                            type="password"
-                            placeholder="Password"
-                            required
-                            value={user.password} />
-                    </div>
-
 
                     <button class="btn btn-secondary" type="submit"> Log in</button>
                 </form>

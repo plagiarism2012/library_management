@@ -55,6 +55,10 @@ body {
 
 
 /* Product Description */
+.bookTitle{
+    font-family: 'Cormorant SC', serif;
+}
+
 .product-description {
     border-bottom: 1px solid #E1E8EE;
     margin-bottom: 20px;
@@ -91,7 +95,7 @@ body {
 
 .editBookData {
     display: inline-block;
-    border: 3px red solid;
+    border: 5px double #410374 ;
     border-radius: 10px;
     padding: 50px;
     font-size: 18px;

@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #eee;
+    background: rgb(217, 205, 230);
     padding: 0 16px;
     font-family: "McLaren", cursive;
     min-height: 100vh;
@@ -14,10 +14,14 @@ body {
 /* Header */
 
 header {
-    background-color: #f5ba13;
+    background-color: #410374;
     margin: auto -16px;
     padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+#Library{
+    font-family: 'Space Mono', monospace;
 }
 
 header h1 {
@@ -44,13 +48,6 @@ header h1 {
 }
 /* Footer */
 
-.sticky-footer {
-    background-color: red;
-    position: sticky;
-    text-align: center;
-    width: 100%;
-    top: 100%;
-}
 
 /* Book */
 
@@ -76,6 +73,9 @@ header h1 {
 
 .card{
     height: 500px;
+    /* background-color: rgb(197, 243, 242); */
+    /* border: #410374 2px solid; */
+    box-shadow: 2px 2px 20px #410374;
 }
 
 .card-text{
@@ -102,7 +102,12 @@ header h1 {
     border: 1px black solid;
 }
 
-#Alert1,#Alert2{
+#Alert1,#Alert2,#countAlert{
+    visibility: hidden;
+}
+
+#bookAddAlert{
+    margin: 10px;
     visibility: hidden;
 }
 
@@ -111,4 +116,41 @@ header h1 {
     position: absolute;
     width: 100%;
     z-index: 1;
+}
+
+/* Search Bar */
+
+.search-bar{
+    text-align: center;
+    height: 200px;
+}
+
+.search-bar input{
+    border: #410374 solid;
+    color: #410374 !important;
+}
+
+.search{
+    display: inline;
+    position: relative;
+    top: 80px;
+}
+
+button{
+    background-color: #410374 !important;
+    color: white !important;
+    border: #eee solid !important;
+}
+
+.bookName{
+    font-family: 'Cormorant SC', serif;
+    font-weight: 700 !important;
+}
+
+.bookName,.authorName{
+    color: black;
+}
+
+.bookName{
+    line-height: 1.5rem;
 }

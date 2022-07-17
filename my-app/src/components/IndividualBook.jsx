@@ -13,7 +13,7 @@ function IndividualBook(props) {
     const location = useLocation();
     const { ID } = location.state;
     const context = useContext(Bookcontext);
-    const { book, particularBook } = context;
+    const { book, setBook, particularBook } = context;
     useEffect(() => {
         particularBook(ID);
     }, []);
@@ -34,7 +34,31 @@ function IndividualBook(props) {
         }, 1000);
     }
 
-    console.log(book);
+    function handleChange(event) {
+
+        const { name, value} = event.target;
+
+        setBook((prevValue) => {
+            return {
+                ...prevValue,
+                [name]: value
+            };
+        });
+    }
+
+    async function handleSubmit(event){
+        console.log(ID);
+        await axios
+        .put("http://localhost:5500/editBook/" + ID, {countBook : book.countBook})
+        .then(res => console.log(res.data))
+
+        const message = document.getElementById("countAlert");
+        message.style.visibility = "visible";
+
+        setTimeout(function () {
+            window.location.reload();
+        }, 1000);
+    }
 
     var stars = [];
     for (var i = 0; i < book.Rating; i++) {
@@ -53,7 +77,7 @@ function IndividualBook(props) {
                 <div class="right-column">
 
                     <div class="product-description">
-                        <h1>{book.Name}</h1>
+                        <h1 className="bookTitle">{book.Name}</h1>
                         <h3>{book.Author}</h3>
                         <span>{stars}</span>
                         <p className="description">Description</p>
@@ -77,18 +101,21 @@ function IndividualBook(props) {
 
             </main>
 
+            {/* edit data -------------------------- */}
+
             <div className="editData">
                 {localStorage.getItem("token") &&
                     <div className="editBookData">
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-3"> Count</span>
                             <input class="form-control col-sm-4"
-                                name="countCopy"
+                                name="countBook"
                                 type="number"
-                                min="1"
+                                min="0"
                                 placeholder="Number of Copies"
+                                onChange={handleChange}
                                 value={book.countBook} />
-                            <button className="btn btn-secondary btn-sm ml-2">Confirm</button>
+                            <button onClick={handleSubmit} className="btn btn-secondary btn-sm ml-2">Confirm</button>
                         </div>
 
                         <br />
@@ -102,10 +129,12 @@ function IndividualBook(props) {
                 <div id="Alert" class="alert alert-danger" role="alert">
                     Book Deleted Successfully.
                 </div>
+                <div id="countAlert" class="alert alert-success" role="alert">
+                    Count Updated Successfully.
+                </div>
             </div>
         </div>
     );
 }
 
 export default IndividualBook;
-

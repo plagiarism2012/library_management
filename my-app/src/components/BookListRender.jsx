@@ -13,7 +13,7 @@ function BookListRender() {
     const [user, setUser] = useState({
         search: ""
     });
-    
+
     useEffect(() => {
         allBooks();
     }, []);
@@ -21,46 +21,72 @@ function BookListRender() {
     async function handleChange(event) {
         const { name, value } = event.target;
 
-        await setUser(prevValue => {
+        setUser(prevValue => {
             return {
                 ...prevValue,
                 [name]: value
             }
         });
 
+        var key = value;
+
         const card = document.querySelectorAll("#card");
         var i = 0;
-        const key = user.search.toLowerCase();
         console.log(key);
         book.forEach(element => {
             const isVisible =
                 element.Name.toLowerCase().includes(key) ||
                 element.Author.toLowerCase().includes(key)
-            
-            
-            if(isVisible){
+
+
+            if (isVisible) {
                 card[i].classList.remove("hide");
             }
-            else{
+            else {
                 card[i].classList.add("hide");
             }
             i++;
         })
-        console.log("lol")
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        var key = user.search;
+
+        const card = document.querySelectorAll("#card");
+        var i = 0;
+        console.log(key);
+        book.forEach(element => {
+            const isVisible =
+                element.Name.toLowerCase().includes(key) ||
+                element.Author.toLowerCase().includes(key)
+
+
+            if (isVisible) {
+                card[i].classList.remove("hide");
+            }
+            else {
+                card[i].classList.add("hide");
+            }
+            i++;
+        })
     }
 
     return (
         <div>
             <Header />
 
-            <form class="form-inline mx-auto">
-                <input class="form-control mr-sm-2 " onChange={handleChange} type="search" placeholder="Search" aria-label="Search" name="search" value={user.search} />
-                <button class="btn btn-secondary btn-md my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div className="search-bar">
+                <form class="form-inline mx-auto search" onSubmit={handleSubmit}>
+                    <input class="form-control mr-sm-2 " onChange={handleChange} type="search" placeholder="Search" aria-label="Search" name="search" value={user.search} />
+                    <button class="btn btn-secondary btn-md my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
 
             {Array.isArray(book) ? book.map(item => (
                 <Book name={item.Name} author={item.Author} id={item._id} image={item.Image} />
             )) : []}
+            {/* <Footer/> */}
         </div>
     );
 }
