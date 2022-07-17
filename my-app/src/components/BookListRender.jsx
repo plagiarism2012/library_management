@@ -29,7 +29,7 @@ function BookListRender() {
         });
 
         var key = value;
-
+        var count=0;
         const card = document.querySelectorAll("#card");
         var i = 0;
         console.log(key);
@@ -44,9 +44,17 @@ function BookListRender() {
             }
             else {
                 card[i].classList.add("hide");
+                count+=1;
             }
             i++;
         })
+        
+        if(count==book.length){
+            document.querySelectorAll(".noBook")[0].classList.remove("hide");
+        }else{
+            document.querySelectorAll(".noBook")[0].classList.add("hide");
+            count=0;
+        }
     }
 
     function handleSubmit(event) {
@@ -55,6 +63,7 @@ function BookListRender() {
 
         const card = document.querySelectorAll("#card");
         var i = 0;
+        var count=0;
         console.log(key);
         book.forEach(element => {
             const isVisible =
@@ -67,9 +76,16 @@ function BookListRender() {
             }
             else {
                 card[i].classList.add("hide");
+                count+=1;
             }
             i++;
         })
+        if(count==book.length){
+            document.querySelectorAll(".noBook")[0].classList.remove("hide");
+        }else{
+            document.querySelectorAll(".noBook")[0].classList.add("hide");
+            count=0;
+        }
     }
 
     return (
@@ -82,7 +98,7 @@ function BookListRender() {
                     <button class="btn btn-secondary btn-md my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
-
+            <h1 className="noBook hide"><i class="fa-solid fa-circle-exclamation fa-xl"></i>&nbsp;&nbsp;No Book available</h1>
             {Array.isArray(book) ? book.map(item => (
                 <Book name={item.Name} author={item.Author} id={item._id} image={item.Image} />
             )) : []}

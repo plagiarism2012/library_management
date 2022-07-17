@@ -70,16 +70,16 @@ function IndividualBook(props) {
             <Header />
             <main class="container">
 
-                <div class="left-column">
+                <div class="left-column col-sm-6">
                     <img className="bookImg" src={book.Image} alt="NA" />
                 </div>
 
-                <div class="right-column">
+                <div class="right-column col-sm-6">
 
                     <div class="product-description">
                         <h1 className="bookTitle">{book.Name}</h1>
                         <h3>{book.Author}</h3>
-                        <span>{stars}</span>
+                        <span className="stars">{stars}</span>
                         <p className="description">Description</p>
                     </div>
 
@@ -87,7 +87,7 @@ function IndividualBook(props) {
                     <div class="product-configuration">
                         <div class="cable-config">
                             <span>Tags : </span>
-                            {book.tags?.map(item => { return (<button type="button" class="btn btn-outline-secondary">{item}</button>) })}
+                            {book.tags?.map(item => { return (<button type="button" id="tagbut" class="btn btn-outline-secondary">{item}</button>) })}
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@ function IndividualBook(props) {
                 {localStorage.getItem("token") &&
                     <div className="editBookData">
                         <div class="input-group mb-3">
-                            <span class="input-group-text col-sm-3"> Count</span>
+                            <span class="input-group-text col-sm-3 col-3"> Count</span>
                             <input class="form-control col-sm-4"
                                 name="countBook"
                                 type="number"
@@ -115,7 +115,7 @@ function IndividualBook(props) {
                                 placeholder="Number of Copies"
                                 onChange={handleChange}
                                 value={book.countBook} />
-                            <button onClick={handleSubmit} className="btn btn-secondary btn-sm ml-2">Confirm</button>
+                            <button onClick={handleSubmit} id="tagbut" className="btn btn-secondary btn-sm ml-2">Confirm</button>
                         </div>
 
                         <br />

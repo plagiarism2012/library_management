@@ -41,7 +41,7 @@ function About() {
                         <div className="logos">
                             <span><a href="https://www.linkedin.com/in/siddhant-jain-a88ab41bb/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a></span>
                             <span><a href="https://github.com/Sid08JLUCKY" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a></span>
-                            <span><a href="sjain2531@gmail.com" target="_blank"><i class="fa-solid fa-envelope fa-2xl"></i></a></span>
+                            <span><a href="mailto:sjain2531@gmail.com" target="_blank"><i class="fa-solid fa-envelope fa-2xl"></i></a></span>
                         </div>
                     </div>
                 </div>

@@ -6,41 +6,27 @@
 
 body {
     background: rgb(217, 205, 230);
-    padding: 0 16px;
     font-family: "McLaren", cursive;
     min-height: 100vh;
+    min-width: none;
 }
 
 /* Header */
 
 header {
     background-color: #410374;
-    margin: auto -16px;
-    padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-#Library{
+#Library, #Library:hover{
     font-family: 'Space Mono', monospace;
-}
-
-header h1 {
     color: #fff;
     font-weight: 200;
-    display: inline-block;
-}
-
-.homeButtons {
-    display: block;
-    position: relative;
-    text-align: right;
-    display: inline-block;
-    position: absolute;
-    right: 20px;
+    text-decoration: none;
 }
 
 .homeButton {
-    margin: 5px;
+    margin: 0.8rem;
 }
 
 .hide {
@@ -49,44 +35,12 @@ header h1 {
 /* Footer */
 
 
-/* Book */
 
-.book {
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
-    padding: 10px;
-    width: 240px;
-    margin: 16px;
-    float: left;
-}
-
-.book img {
-    border-radius: 5px;
-    height: 70%;
-    width: 220px;
-}
-
-.bookName{
-    font-size: 25px;
-}
-
-.card{
-    height: 500px;
-    /* background-color: rgb(197, 243, 242); */
-    /* border: #410374 2px solid; */
-    box-shadow: 2px 2px 20px #410374;
-}
-
-.card-text{
-    position: absolute;
-    bottom: 20px;
-}
 
 /* Book Form */
 
 .formContainer {
-    padding: 100px;
+    padding: 5%;
     text-align: center;
     margin: 0 auto;
     position: relative;
@@ -104,8 +58,12 @@ header h1 {
 
 #Alert1,#Alert2,#countAlert{
     visibility: hidden;
+    
 }
 
+#Alert1{
+    margin-top: 5%;
+}
 #bookAddAlert{
     margin: 10px;
     visibility: hidden;
@@ -117,7 +75,9 @@ header h1 {
     width: 100%;
     z-index: 1;
 }
-
+#Alert{
+    margin-top: 5%;
+}
 /* Search Bar */
 
 .search-bar{
@@ -153,4 +113,10 @@ button{
 
 .bookName{
     line-height: 1.5rem;
+}
+
+.noBook{
+    color: #410374;
+    margin-bottom: 18rem;
+    text-align: center;
 }
