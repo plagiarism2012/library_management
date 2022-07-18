@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../non-components/Header.jsx";
-import Footer from "../non-components/Footer.jsx";
+
+var nxt;
 
 function Login(props) {
 
@@ -23,6 +24,7 @@ function Login(props) {
         });
     }
 
+
     async function handleSubmit(e) {
 
         e.preventDefault();
@@ -40,6 +42,8 @@ function Login(props) {
             localStorage.setItem('token', json.authToken);
             const message = document.getElementById("Alert1");
             message.style.visibility = "visible";
+
+            // nxt = new Date().getTime() + (60*1000); 
 
             setTimeout(function () {
                 nav("/");
@@ -104,3 +108,5 @@ function Login(props) {
 }
 
 export default Login;
+
+export {nxt};

@@ -40,7 +40,6 @@ usersRoute.post("/login",[
             }
         }
         const authToken = jwt.sign(data, process.env.JWT_SECRET_KEY, {
-            expiresIn: "1d",
         });
         success = true ;
         res.json({success, authToken})
