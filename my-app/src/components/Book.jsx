@@ -8,20 +8,15 @@ function Book(props) {
     }
 
     return (
-        // <div class="col-lg-12">
             <Link to="/IndividualBook" state={{ ID: props.id }}>
-                {/* <div class="col-lg-6"> */}
-                    <div className="card book mx-10" id="card">
-                        <img className="card-img-top" src={props.image} alt="NA" />
-                        <div className="card-body">
-                            <p className="card-title bookName">{truncate(props.name)}</p>
-                            <p className="card-text authorName">{props.author}</p>
-                        </div>
+                <div  data-aos-once="false" data-aos-easing="ease-in" data-aos="flip-left" className="aos-item card book mx-10" id="card">
+                    <img className="card-img-top" src={props.image} alt="NA" />
+                    <div className="card-body">
+                        <p className="card-title bookName">{truncate(props.name)}</p>
+                        <p className="card-text authorName">{props.author}</p>
                     </div>
-                {/* </div> */}
-                
+                </div>                
             </Link>
-        // </div>
     );
 }
 

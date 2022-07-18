@@ -41,9 +41,13 @@ function BookListRender() {
 
             if (isVisible) {
                 card[i].classList.remove("hide");
+                card[i].removeAttribute("data-aos");
             }
             else {
                 card[i].classList.add("hide");
+                // if(!card[i].hasAttribute("data-aos")){
+                //     card[i].setAttribute("data-aos","flip-left");
+                // }
                 count+=1;
             }
             i++;
@@ -73,9 +77,13 @@ function BookListRender() {
 
             if (isVisible) {
                 card[i].classList.remove("hide");
+                card[i].removeAttribute("data-aos");
             }
             else {
                 card[i].classList.add("hide");
+                // if(!card[i].hasAttribute("data-aos")){
+                //     card[i].setAttribute("data-aos","flip-left");
+                // }
                 count+=1;
             }
             i++;

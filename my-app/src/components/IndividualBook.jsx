@@ -9,6 +9,7 @@ import Footer from "../non-components/Footer.jsx";
 import { Alert } from "reactstrap";
 
 function IndividualBook(props) {
+    window.scrollTo(0,0);
     const nav = useNavigate();
     const location = useLocation();
     const { ID } = location.state;
@@ -79,7 +80,7 @@ function IndividualBook(props) {
                     <div class="product-description">
                         <h1 className="bookTitle">{book.Name}</h1>
                         <h3>{book.Author}</h3>
-                        <span className="stars">{stars}</span>
+                        <span data-aos="fade-up" className="stars">{stars}</span>
                         <p className="description">Description</p>
                     </div>
 

@@ -10,13 +10,13 @@ import BookAPI from "../BookContext/BookAPI";
 import Login from "./Login";
 import About from "../non-components/About"
 import Footer from "../non-components/Footer";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
-
+    AOS.init();
     return (
         <div>
-            
             <BookAPI>
                 <BrowserRouter>
                     <Routes>
