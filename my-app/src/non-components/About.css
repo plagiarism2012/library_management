@@ -1,0 +1,68 @@
+.About{
+    text-align: center;
+}
+
+.content h1{
+    padding: 70px;
+    padding-bottom: 30px;
+    color: black;
+    font-weight: 600;
+    
+}
+.content p{
+    color: black;
+    font-weight: 500;
+}
+.content .card{
+    display: inline-block;
+    width: 32%;
+    height: 14rem;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    float: left;
+}
+
+.content h3{
+    font-family: 'Righteous', cursive;
+}
+
+
+.content span{
+    margin:15px;
+}
+
+.content a{
+    color: black;
+}
+
+.logos{
+    position: relative;
+    top: 50px;
+}
+@media screen and (max-width:1150px) {
+    .content .card{
+        width: 40%;
+        height: 13rem;
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width:940px) {
+    .content .card{
+        width: 42%;
+        height: 14rem;
+    }
+}
+@media screen and (max-width:880px) {
+    .content .card{
+        width: 42%;
+        height: 18rem;
+    }
+}
+@media screen and (max-width:640px) {
+    .content .card{
+        width: 60%;
+        height: 18rem;
+        margin-left: 20%;
+    }
+}

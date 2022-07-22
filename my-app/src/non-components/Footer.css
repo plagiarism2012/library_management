@@ -1,0 +1,66 @@
+footer{
+	background-color: #410374;
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+	vertical-align: baseline;
+}
+footer a{
+	color: #010E25;
+	cursor: pointer;
+}
+#copy{
+	font-size: 90%;
+}
+#copy p{
+	float: right;
+}
+#icons{
+	font-size: 100%;
+}
+
+#all_lists,#tc{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	color: white;
+    font-size: 0.8rem;
+}
+.flist ul{
+    font-size: 0.8rem;
+	padding-top: 5%;
+	margin: 1%;
+	width: 100%;
+	list-style: none;
+	color: white;
+	font-size: 0.8rem;
+}
+.flist ul li a{
+	color: white;
+	font-size: 0.8rem;
+	text-decoration: none;
+    font-size: 0.8rem;
+}
+.flist ul li a:hover{
+	text-decoration: underline;
+}
+#tc{
+	padding: 1%;
+}
+#footericons a{
+	color: white;
+	font-size: 1.0.8rem;
+}
+#logo{
+	width: 30%;
+	float: right;
+}
+@media screen and (max-width: 925px){
+	.add,footer hr{
+		display: none;
+	}
+}
+
+

@@ -1,0 +1,197 @@
+/* Basic Styling */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-family: "McLaren", cursive;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Columns */
+
+/* Left Column */
+
+.left-column img.active {
+    opacity: 1;
+}
+.bookImg{
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+}
+/* Right column */
+
+.right-column h1{
+    font-size: 4rem;
+    font-weight: 600;
+    color: #43484D;
+    letter-spacing: -2px;
+    padding-bottom: 5%;
+}
+.stars{
+    padding-bottom: 5%;
+}
+
+.right-column h3 {
+    font-size: 1.8rem;
+    padding-bottom: 5%;
+}
+
+.description {
+    font-size: 1.2rem;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+/* Product Description */
+.bookTitle{
+    font-family: 'Cormorant SC', serif;
+}
+
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 8%;
+    padding: 5%;
+    padding-left: 2%;
+}
+
+.product-description p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+}
+.cable-config{
+    font-size: 1.2rem;
+}
+.product-price {
+    padding-top: 1%;
+}
+
+/* Edit Data */
+
+.editData {
+    padding: 5%;
+    text-align: center;
+}
+
+.editBookData {
+    display: inline-block;
+    border: 5px double #410374 ;
+    border-radius: 10px;
+    padding: 4%;
+    font-size: 1rem;
+}
+
+.content {
+    padding: 2%;
+}
+
+.delete {
+    outline: 0;
+    border: 0;
+}
+
+.delete:hover,
+.delete:focus {
+    outline: none;
+}
+
+#Alert{
+    visibility: hidden;
+}
+@media screen and (max-width:900px) {
+    .bookImg{
+        width: 90%;
+        height: 90%;
+    }
+    .right-column h1{
+        font-size: 3.5rem;
+        font-weight: 600;
+        color: #43484D;
+        letter-spacing: -2px;
+    }
+    .stars{
+        font-size: 90%;
+    }
+    .right-column h3 {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:790px) {
+    .right-column h1{
+        font-size: 3rem;
+        font-weight: 600;
+        color: #43484D;
+        letter-spacing: -2px;
+    }
+    .stars{
+        font-size: 80%;
+    }
+    .right-column h3 {
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width:600px) {
+    .right-column h1{
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #43484D;
+        letter-spacing: -2px;
+    }
+
+    
+    .right-column h3 {
+        font-size: 1.1rem;
+    }
+    .cable-config,.numbers{
+        font-size: 1rem;
+    }
+    #tagbut{
+        font-size: 0.6rem !important;
+    }
+    
+}
+@media screen and (max-width:508px) {
+    .bookImg{
+        width: 60%;
+        height: 50%;
+    }
+ 
+    .container{
+        flex-direction: column;
+        text-align: center;
+    }
+    .right-column h1{
+        font-size: 2rem;
+        font-weight: 600;
+        color: #43484D;
+        letter-spacing: -2px;
+        padding-bottom: 0;
+    }
+    .stars{
+        font-size: 70%;
+        padding-top: 1%;
+    }
+    .right-column h3 {
+        padding-top: 1%;
+        font-size: 1.2rem;
+    }
+    .cable-config,.numbers{
+        font-size: 1rem;
+    }
+    #tagbut{
+        font-size: 0.8rem !important;
+    }
+    
+}
